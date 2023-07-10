@@ -39,19 +39,21 @@ Using a library like `l8` to make the chains fluid is probably not the worst ide
 See [DarkMrSoft](https://github.com/MBDesu/DarkMrSoft) for a concrete example of using this library.
 
 ## Todo
+- [x] MAME to Darksoft conversion
+- [x] Concatenate executable binary
 - [x] Get graphics
+- [x] Decrypt
+  - [x] `.zip`
+  - [x] `.bin`
+- [ ] Encrypt
+  - [ ] Files?
+  - [x] Binary
+- [ ] Swap bytes
+  - [ ] Files?
+  - [ ] Binary
 - [ ] Decode graphics
- - [ ] `.ips` to `.mra`
- - [ ] `.mra` to `.ips`
- - [x] Decrypt
-	 - [x] `.zip`
-	 - [x] `.bin`
- - [ ] Encrypt
-	 - [ ] Files?
-	 - [x] Binary
-  - [ ] Swap bytes
-	  - [ ] Files?
-	  - [ ] Binary
+- [ ] `.ips` to `.mra`
+- [ ] `.mra` to `.ips`
 - [ ] Split binary to files
 - [ ] Graphics patching
 - [ ] Audio patching

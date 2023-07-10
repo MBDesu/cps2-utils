@@ -18,7 +18,21 @@
     "decryption",
     "romhacking"
   ],
-  "author": "MBDesu",
+  "author": {
+    "name": "MBD",
+    "url": "https://github.com/MBDesu"
+  },
+  "funding": {
+    "url": "https://ko-fi.com/mbdesu",
+    "type": "individual"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MBDesu/cps2-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MBDesu/cps2-utils/issues"
+  },
   "license": "MIT",
   "files": [
     "/lib"
