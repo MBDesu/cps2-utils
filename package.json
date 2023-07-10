@@ -1,0 +1,37 @@
+{
+  "name": "cps2-utils",
+  "version": "0.0.1",
+  "description": "A utility library for working with CPS2 ROMs in the MAME format. Supports decryption, encryption, conversion to Darksoft format, and more!",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [
+    "cps2",
+    "mame",
+    "fightcade",
+    "roms",
+    "encryption",
+    "decryption",
+    "romhacking"
+  ],
+  "author": "MBDesu",
+  "license": "MIT",
+  "files": [
+    "/lib"
+  ],
+  "exports": {
+    ".": "./lib"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^1.0.2",
+    "@types/node": "^20.3.2",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}
