@@ -47,9 +47,8 @@ export class Cps2RomProcessor {
     }
     if (regionName === Rom.Region.Type.EXECUTABLE) {
       return ByteUtils.swapGroups(processedBinary, 2);
-      // TODO:
-    // } else if (regionName === Rom.RegionType.GRAPHICS) {
-    //   this.decodeGraphics(processedBinary, region.size);
+    } else if (regionName === Rom.Region.Type.GRAPHICS) {
+      this.decodeGraphics(processedBinary, region.size);
     }
     return Promise.resolve(processedBinary);
   }
@@ -84,6 +83,14 @@ export class Cps2RomProcessor {
       }
     }
     return Promise.resolve(bufPtr);
+  }
+
+  private static decodeGraphics(processedBinary: Uint8Array, regionSize: number): Uint8Array {
+    const length = processedBinary.length;
+    if (length % 4 !== 0) throw new Error('Graphics data is invalid or corrupt');
+    const uint64Binary = new BigUint64Array(processedBinary);
+    // TODO: the rest
+    return processedBinary;
   }
 
 }

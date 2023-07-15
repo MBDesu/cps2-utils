@@ -31,6 +31,10 @@ export class Cps2Rom {
   constructor(romZip: File) {
     this.romZip = romZip;
     this.name = FileUtils.getFileName(this.romZip);
+    this.definition = roms[this.name!];
+    if (!this.definition) {
+      throw new Error('Invalid ROM. Ensure the rom has its original name and file extension (.zip)');
+    }
   }
 
   /**
@@ -42,7 +46,6 @@ export class Cps2Rom {
     if (this.hasBeenRead) {
       return Promise.resolve(this);
     }
-    this.definition = roms[this.name!];
     if (!this.definition) {
       return Promise.reject(new Error('Invalid ROM. Ensure the rom has its original name and file extension (.zip)'));
     }
@@ -156,60 +159,10 @@ export class Cps2Rom {
   }
 
   /**
-   * @returns The ROM part files
-   */
-  getFiles(): File[] | undefined {
-    return this.parts;
-  }
-
-  /**
-   * @returns The ROM name
-   */
-  getName(): string {
-    return this.name;
-  }
-
-  /**
-   * @returns The ROM definition of this ROM
-   */
-  getDefinition(): Cps2RomDefinition | undefined {
-    return this.definition;
-  }
-
-  /**
    * @returns The original (unmodified) binary of the executable parts of ROM
    */
   getBinary(): Uint8Array | undefined {
     return this.originalBinary;
-  }
-
-  /**
-   * @returns The decrypted opcodes of the executable parts of ROM, if the ROM
-   * was decrypted
-   */
-  getDecryptedOpcodes(): Uint8Array | undefined {
-    return this.decryptedOpcodes;
-  }
-  
-  /**
-   * @returns The modified ROM executable binary, if the ROM was patched
-   */
-  getModifiedBinary(): Uint8Array | undefined {
-    return this.modifiedBinary;
-  }
-
-  /**
-   * @returns The patched ROM, if the ROM was patched
-   */
-  getModifiedRom(): File | undefined {
-    return this.modifiedRom;
-  }
-
-  /**
-   * @returns The files that were modified in patching, if the ROM was patched
-   */
-  getModifiedParts(): File[] | undefined {
-    return this.modifiedParts;
   }
 
   /**
@@ -220,10 +173,18 @@ export class Cps2Rom {
   }
 
   /**
-   * @returns The ROM zip originally supplied to the constructor of this object.
+   * @returns The decrypted opcodes of the executable parts of ROM, if the ROM
+   * was decrypted
    */
-  getRomZip(): File {
-    return this.romZip;
+  getDecryptedOpcodes(): Uint8Array | undefined {
+    return this.decryptedOpcodes;
+  }
+
+  /**
+   * @returns The ROM part files
+   */
+  getFiles(): File[] | undefined {
+    return this.parts;
   }
 
   /**
@@ -232,5 +193,55 @@ export class Cps2Rom {
   // getGraphicsBinary(): Uint8Array | undefined { 
   //   return this.graphicsBinary;
   // }
+
+  /**
+   * @returns The modified ROM executable binary, if the ROM was patched
+   */
+  getModifiedBinary(): Uint8Array | undefined {
+    return this.modifiedBinary;
+  }
+
+  /**
+   * @returns The files that were modified in patching, if the ROM was patched
+   */
+  getModifiedParts(): File[] | undefined {
+    return this.modifiedParts;
+  }
+
+  /**
+   * @returns The patched ROM, if the ROM was patched
+   */
+  getModifiedRom(): File | undefined {
+    return this.modifiedRom;
+  }
+
+  /**
+   * @returns The ROM name
+   */
+  getName(): string {
+    return this.name;
+  }
+
+  /**
+   * Gets some information about the state the ROM is in as it pertains to
+   * reading, processing, etc.
+   * @returns The state
+   */
+  getRomState(): {
+    hasBeenRead: boolean,
+    processedRegions: string[],
+  } {
+    return {
+      hasBeenRead: this.hasBeenRead,
+      processedRegions: this.processedRegions,
+    };
+  }
+
+  /**
+   * @returns The ROM zip originally supplied to the constructor of this object.
+   */
+  getRomZip(): File {
+    return this.romZip;
+  }
 
 }

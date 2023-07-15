@@ -1,6 +1,6 @@
 import { ByteUtils } from '../../utils/byte-utils.js';
 import { FileUtils } from '../../utils/file-utils.js';
-import { Cps2RomDefinition } from '../index.js';
+import { Cps2RomDefinition } from '../definition/cps2-rom-definition.js';
 import { Rom } from '../rom-region.js';
 
 export class Cps2RomConverter {
