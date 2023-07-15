@@ -62,7 +62,7 @@ See [DarkMrSoft](https://github.com/MBDesu/DarkMrSoft) for a concrete example of
 - [ ] Swap bytes
   - [ ] Files?
   - [ ] Binary
-- [ ] Split binary to files
+- [x] Split binary to files ✅ 2023-07-15
 - [ ] Graphics patching
 - [ ] Audio patching
 - [ ] Fill operation
