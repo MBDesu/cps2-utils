@@ -29,4 +29,29 @@ export class ByteUtils {
     return result;
   }
 
+  static uint8ArrayToBigUint64Array(arr: Uint8Array): BigUint64Array {
+    if (arr.length % 8 !== 0) throw new Error('Input length must be divisible by 8');
+    const dataView = new DataView(arr.buffer);
+    const bigUint64Array = new BigUint64Array(arr.length / 8);
+
+    for (let i = 0; i < bigUint64Array.length; i++) {
+      const bigUint64Value = dataView.getBigUint64(i * 8, true);
+      bigUint64Array[i] = bigUint64Value;
+    }
+
+    return bigUint64Array;
+  }
+
+  static bigUint64ArrayToUint8Array(arr: BigUint64Array): Uint8Array {
+    const uint8Array = new Uint8Array(arr.length * 8);
+    const dataView = new DataView(uint8Array.buffer);
+
+    for (let i = 0; i < arr.length; i++) {
+      const bigUint64Value = arr[i];
+      dataView.setBigUint64(i * 8, bigUint64Value, true);
+    }
+
+    return uint8Array;
+  }
+
 }

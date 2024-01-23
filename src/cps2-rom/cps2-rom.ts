@@ -188,6 +188,13 @@ export class Cps2Rom {
   }
 
   /**
+   * @returns The binary for the graphics region, if it has been processed
+   */
+  // getGraphicsBinary(): Uint8Array | undefined {
+  //   return this.graphicsBinary;
+  // }
+
+  /**
    * @returns The ROM graphics binary, if it has been processed
    */
   // getGraphicsBinary(): Uint8Array | undefined { 

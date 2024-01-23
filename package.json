@@ -1,6 +1,6 @@
 {
   "name": "cps2-utils",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A utility library for working with CPS2 ROMs in the MAME format. Supports decryption, encryption, conversion to Darksoft format, and more!",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MBDesu/cps2-utils.git"
+    "url": "git+https://github.com/MBDesu/cps2-utils.git"
   },
   "bugs": {
     "url": "https://github.com/MBDesu/cps2-utils/issues"
@@ -38,9 +38,6 @@
   "files": [
     "/lib"
   ],
-  "exports": {
-    ".": "./lib"
-  },
   "directories": {
     "doc": "./docs"
   },
