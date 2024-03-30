@@ -2,7 +2,11 @@
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "outDir": "lib/",
-    "declaration": true
+    "declaration": true,
+    "lib": [
+      "ES2020",
+      "dom"
+    ]
   },
   "include": ["src", "src/roms.d.ts"],
   "exclude": ["node_modules/**/*"],
