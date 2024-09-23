@@ -41,7 +41,7 @@ export class Cps2RomPatcher {
         xmlDoc.querySelectorAll('rom').forEach((rom) => {
           if (rom.getAttribute('index') && rom.getAttribute('index') === nvramIndex) {
             rom.childNodes.forEach((child) => {
-              if (child && child.nodeName === 'part') {
+              if (child && child.nodeName.toLowerCase() === 'part') {
                 eepromString += child.textContent ?? '';
               }
             });
